@@ -35,16 +35,17 @@ public class App {
                 LogEvent evt = LogEventParser.parseEvent(currentLine);
                 processor.Process(evt);
             }
-
-            logger.info( eventWriter.getInsertCount() + " rows inserted into DB");
         } catch (IOException e) {
+            logger.error("Unable to process input file", e);
             e.printStackTrace();
         }
         catch (Exception ge){
+            logger.error("Ooops, something went wrong", ge);
             ge.printStackTrace();
         }
         finally {
             eventWriter.cleanup();
+            logger.info(eventWriter.getInsertCount() + " rows inserted into DB");
         }
     }
 
