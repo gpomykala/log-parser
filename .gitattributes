@@ -1,0 +1,17 @@
+#
+# https://help.github.com/articles/dealing-with-line-endings/
+#
+# Autodetect text files
+* text=auto
+# ...Unless the name matches the following
+# overriding patterns
+
+# Definitively text files
+*.txt text
+*.c text
+*.h text
+# These are explicitly windows files and should use crlf
+*.bat           text eol=crlf
+# Ensure those won't be messed up with
+*.jpg binary
+*.data binary
